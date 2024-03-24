@@ -1,0 +1,9 @@
+1. TESTS
+2. Mock data / repo's (also part of tests)
+3. Swagger or the like?
+4. Webscraping-service
+5. Calls property-service and saves properties
+6. Display properties in UI
+7. Implement the calculators in Java / Find out how to integrate scala?
+8. Frontend for calculators
+9. MORE TESTS e2e's
