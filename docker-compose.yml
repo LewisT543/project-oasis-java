@@ -20,7 +20,9 @@ services:
     depends_on:
       - property-mongodb
     environment:
+      - SPRING_PROFILES_ACTIVE=default
       - SPRING_DATA_MONGODB_HOST=property-mongodb
+      - SPRING_DATA_MONGODB_DATABASE=main
 
   property-mongodb:
     image: mongo:latest
