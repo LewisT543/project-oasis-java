@@ -8,14 +8,8 @@ if %ERRORLEVEL% neq 0 (
   exit /b %ERRORLEVEL%
 )
 
-echo Preparing property service...
-cd ../property-service
-call mvn clean install compile package
-echo %ERRORLEVEL%
-if %ERRORLEVEL% neq 0 (
-  echo Failed to prepare property service.
-  exit /b %ERRORLEVEL%
-)
+call ../scripts/prepare_service.bat property
+call ../scripts/prepare_service.bat mortgage
 
 echo Deploying services...
 cd ..
