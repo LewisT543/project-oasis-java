@@ -9,6 +9,7 @@ if %ERRORLEVEL% neq 0 (
 )
 
 call ../scripts/prepare_service.bat property
+call ../scripts/prepare_service.bat applicant
 call ../scripts/prepare_service.bat mortgage
 
 echo Deploying services...

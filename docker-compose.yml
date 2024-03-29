@@ -27,7 +27,10 @@ services:
   property-mongodb:
     image: mongo:latest
     ports:
-      - "27017:27017"
+      - "4081:4081"
+    volumes:
+      - ./property-service/mongod.conf:/etc/mongod.conf
+    command: [ "mongod", "--config", "/etc/mongod.conf" ]
     networks:
       - oasis-net
 
@@ -41,6 +44,31 @@ services:
       - oasis-net
     environment:
       - SPRING_PROFILES_ACTIVE=default
+
+  applicant-service:
+    build:
+      context: ./applicant-service
+      dockerfile: Dockerfile
+    ports:
+      - "8083:8083"
+    networks:
+      - oasis-net
+    depends_on:
+      - applicant-mongodb
+    environment:
+      - SPRING_PROFILES_ACTIVE=default
+      - SPRING_DATA_MONGODB_HOST=applicant-mongodb
+      - SPRING_DATA_MONGODB_DATABASE=main
+
+  applicant-mongodb:
+    image: mongo:latest
+    ports:
+      - "4083:4083"
+    volumes:
+      - ./applicant-service/mongod.conf:/etc/mongod.conf
+    command: ["mongod", "--config", "/etc/mongod.conf"]
+    networks:
+      - oasis-net
 
 networks:
   oasis-net:

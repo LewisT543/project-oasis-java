@@ -9,6 +9,7 @@
         <option value="$PROJECT_DIR$/property-service/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/mortgage-service/pom.xml" />
+        <option value="$PROJECT_DIR$/applicant-service/pom.xml" />
       </list>
     </option>
   </component>
