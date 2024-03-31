@@ -2,8 +2,8 @@ import React, {createContext} from "react";
 import {Property} from "../../types/Property.ts";
 import {ContextType} from "../../types/ContextType.ts";
 import {useFetchData} from "../../hooks/useFetchData.ts";
-import {useSafeContext} from "../useSafeContext.ts";
-import {ProviderProps} from "../../types/ProviderProps.ts";
+import {useSafeContext} from "../../hooks/useSafeContext.ts";
+import {ProviderProps} from "../CombinedProvider.tsx";
 
 type PropertyContextType = ContextType<Property>
 

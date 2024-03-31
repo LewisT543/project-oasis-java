@@ -2,6 +2,11 @@ import React, {ReactNode} from "react";
 import {PropertyProvider} from "./providers/PropertyProvider.tsx";
 import {ApplicantsProvider} from "./providers/ApplicantProvider.tsx";
 
+export type ProviderProps = {
+  apiUrl: string,
+  children: ReactNode
+}
+
 type CombinedProviderProps = {
   propertyUrl: string;
   applicantsUrl: string;

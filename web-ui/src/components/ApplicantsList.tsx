@@ -9,7 +9,7 @@ export const ApplicantsList: FC = () => {
   if (error) return <div>Error: {error.message}</div>
   if (!applicants) return null
 
-  console.log(applicants)
+  applicants.forEach(console.log)
 
   return (
     <div>

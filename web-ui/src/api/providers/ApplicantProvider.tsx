@@ -2,7 +2,7 @@ import {Applicant} from "../../types/Applicant.ts";
 import React, {createContext} from "react";
 import {useFetchData} from "../../hooks/useFetchData.ts";
 import {ContextType} from "../../types/ContextType.ts";
-import {useSafeContext} from "../useSafeContext.ts";
+import {useSafeContext} from "../../hooks/useSafeContext.ts";
 import {ProviderProps} from "../../types/ProviderProps.ts";
 
 type ApplicantContextType = ContextType<Applicant>
