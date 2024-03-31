@@ -8,6 +8,7 @@ public class ApplicantConverter {
         if (entity == null) return null;
         return new Applicant(
                 entity.getId(),
+                entity.getName(),
                 entity.getSalary(),
                 entity.getNetMonthly(),
                 entity.getExpenses()
@@ -18,6 +19,7 @@ public class ApplicantConverter {
         if (dto == null) return null;
         return new ApplicantEntity(
                 dto.getId(),
+                dto.getName(),
                 dto.getSalary(),
                 dto.getNetMonthly(),
                 dto.getExpenses()

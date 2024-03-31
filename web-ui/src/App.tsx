@@ -1,12 +1,16 @@
 import './App.css'
-import {PropertyProvider} from "./api/PropertyProvider.tsx";
 import {PropertiesList} from "./components/PropertiesList.tsx";
+import {CombinedProvider} from "./api/CombinedProvider.tsx";
+import {ApplicantsList} from "./components/ApplicantsList.tsx";
 
 function App() {
   return (
-    <PropertyProvider>
+    <CombinedProvider
+      applicantsUrl={import.meta.env.VITE_APPLICANT_API_URL}
+      propertyUrl={import.meta.env.VITE_PROPERTY_API_URL}>
       <PropertiesList />
-    </PropertyProvider>
+      <ApplicantsList />
+    </CombinedProvider>
   );
 }
 

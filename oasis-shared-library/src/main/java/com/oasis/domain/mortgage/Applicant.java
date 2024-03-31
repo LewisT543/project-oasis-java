@@ -2,14 +2,16 @@ package com.oasis.domain.mortgage;
 
 public class Applicant {
     private String id;
+    private String name;
     private double salary;
     private double netMonthly;
     private Expenses expenses;
 
     public Applicant() {}
 
-    public Applicant(String id, double salary, double netMonthly, Expenses expenses) {
+    public Applicant(String id, String name, double salary, double netMonthly, Expenses expenses) {
         this.id = id;
+        this.name = name;
         this.salary = salary;
         this.netMonthly = netMonthly;
         this.expenses = expenses;
@@ -21,6 +23,14 @@ public class Applicant {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public double getSalary() {

@@ -14,12 +14,12 @@ import java.util.Arrays;
 import java.util.Date;
 
 @Component
-public class DatabaseInitializer {
+public class PropertyDatabaseInitializer {
 
     private final MongoTemplate mongoTemplate;
 
     @Autowired
-    public DatabaseInitializer(MongoTemplate mongoTemplate) {
+    public PropertyDatabaseInitializer(MongoTemplate mongoTemplate) {
         this.mongoTemplate = mongoTemplate;
     }
 
@@ -28,7 +28,7 @@ public class DatabaseInitializer {
         System.out.println("Using Database: " + dbname);
     }
 
-    private void createCollectionIfNotExists(String collectionName) {
+    public void createCollectionIfNotExists(String collectionName) {
         if (!mongoTemplate.collectionExists(collectionName)) {
             mongoTemplate.createCollection(collectionName);
             System.out.println("Created collection: " + collectionName);

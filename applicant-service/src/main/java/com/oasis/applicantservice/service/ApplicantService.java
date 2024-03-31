@@ -31,8 +31,8 @@ public class ApplicantService {
         return ApplicantConverter.toDTO(maybeApplicantEntity);
     }
 
-    public Applicant saveApplicant(Applicant applicant) {
-        ApplicantEntity savedApplicant = applicantRepository.save(ApplicantConverter.toEntity(applicant));
+    public Applicant saveApplicant(ApplicantEntity applicant) {
+        ApplicantEntity savedApplicant = applicantRepository.save(applicant);
         return ApplicantConverter.toDTO(savedApplicant);
     }
 

@@ -8,6 +8,8 @@ services:
       - "4173:4173"
     networks:
       - oasis-net
+    environment:
+      - VITE_APP_USE_MOCK=false
 
   property-service:
     build:

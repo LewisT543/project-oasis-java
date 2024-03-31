@@ -24,11 +24,11 @@ type StationDetails = {
   stationType: StationType;
   distanceFromProperty: number;
 }
-enum StationType { TRAIN, TRAM, BUS }
+export enum StationType { TRAIN, TRAM, BUS }
 
-enum PropertyType { DETACHED, SEMI_DETACHED, TERRACED, BUNGALOW, FLAT }
+export enum PropertyType { DETACHED, SEMI_DETACHED, TERRACED, BUNGALOW, FLAT }
 
-enum Tenure { FREEHOLD, LEASEHOLD, SHARED_FREEHOLD }
+export enum Tenure { FREEHOLD, LEASEHOLD, SHARED_FREEHOLD }
 
 type Rooms = {
   bedrooms: number;

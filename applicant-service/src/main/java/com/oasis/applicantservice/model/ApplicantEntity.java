@@ -13,13 +13,15 @@ public class ApplicantEntity {
     @Id
     private String id;
 
+    private String name;
     private double salary;
     private double netMonthly;
     private Expenses expenses;
 
     public ApplicantEntity() {}
 
-    public ApplicantEntity(double salary, double netMonthly, Expenses expenses) {
+    public ApplicantEntity(String name, double salary, double netMonthly, Expenses expenses) {
+        this.name = name;
         this.salary = salary;
         this.netMonthly = netMonthly;
         this.expenses = expenses;

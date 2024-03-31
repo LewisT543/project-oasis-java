@@ -16,7 +16,7 @@ public class Expenses {
         this.bills = bills;
         this.food = food;
         this.other = other;
-        this.total = loans + rent + bills + other;
+        this.total = loans + rent + bills + food + other;
     }
 
     public double getLoans() {
