@@ -6,7 +6,7 @@ export type Applicant = {
   expenses: Expenses;
 }
 
-type Expenses = {
+export type Expenses = {
   loans: number;
   rent: number;
   bills: number;

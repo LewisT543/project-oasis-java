@@ -1,4 +1,4 @@
-import {Applicant} from "../../types/Applicant.ts";
+import {Applicant} from "@/types/Applicant.ts";
 
 export const mockApplicantResponse: Applicant[] = [
   {

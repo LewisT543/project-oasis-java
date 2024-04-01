@@ -1,5 +1,5 @@
 import {FC} from "react";
-import {usePropertyContext} from "../api/providers/PropertyProvider.tsx";
+import {usePropertyContext} from "@/providers/PropertyProvider.tsx";
 import {objectToArray} from "../utils/objectToArray.ts"
 
 export const PropertiesList: FC = () => {

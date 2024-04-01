@@ -1,9 +1,10 @@
-import {Applicant} from "../../types/Applicant.ts";
+import {Applicant} from "../types/Applicant.ts";
 import React, {createContext} from "react";
-import {useFetchData} from "../../hooks/useFetchData.ts";
-import {ContextType} from "../../types/ContextType.ts";
-import {useSafeContext} from "../../hooks/useSafeContext.ts";
-import {ProviderProps} from "../../types/ProviderProps.ts";
+import {useFetchData} from "@/hooks/useFetchData.ts";
+import {ContextType} from "@/types/ContextType.ts";
+import {useSafeContext} from "@/hooks/useSafeContext.ts";
+import {ProviderProps} from "@/providers/CombinedProvider.tsx";
+
 
 type ApplicantContextType = ContextType<Applicant>
 

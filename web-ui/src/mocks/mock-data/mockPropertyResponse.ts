@@ -1,4 +1,4 @@
-import {Property, PropertyType, StationType, Tenure} from "../../types/Property.ts";
+import {Property, PropertyType, StationType, Tenure} from "@/types/Property.ts";
 
 export const mockPropertyResponse: Property[] = [
   {

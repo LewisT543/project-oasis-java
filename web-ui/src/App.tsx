@@ -1,11 +1,13 @@
-import './App.css'
-import {CombinedProvider} from "./api/CombinedProvider.tsx";
+import {CombinedProvider} from "./providers/CombinedProvider.tsx";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {ApplicantsList} from "./components/ApplicantsList.tsx";
 import {PageLayout} from "./pages/PageLayout.tsx";
-import {PropertiesList} from "./components/PropertiesList.tsx";
+import {PropertiesList} from "./custom-components/PropertiesList.tsx";
 import {HomePage} from "./pages/HomePage.tsx";
 import {RouteNotFoundPage} from "./pages/RouteNotFoundPage.tsx";
+import {ApplicantsHomePage} from "./pages/Applicants/ApplicantsHomePage.tsx";
+import {CreateApplicantPage} from "@/pages/Applicants/CreateApplicantPage.tsx";
+import {ApplicantsPageLayout} from "@/pages/Applicants/ApplicantsPageLayout.tsx";
+
 
 function App() {
   return (
@@ -18,7 +20,10 @@ function App() {
           <Route path={"/"} element={(<PageLayout />)} >
             <Route index element={<HomePage />} />
             <Route path={"properties"} element={<PropertiesList />} />
-            <Route path={"applicants"} element={<ApplicantsList />} />
+            <Route path={"applicants"} element={<ApplicantsPageLayout />} >
+              <Route index element={<ApplicantsHomePage />}/>
+              <Route path={"create"} element={<CreateApplicantPage />} />
+            </Route>
             <Route path={"*"} element={<RouteNotFoundPage />} />
           </Route>
         </Routes>
