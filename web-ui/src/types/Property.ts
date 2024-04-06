@@ -11,15 +11,15 @@ export type Property = {
   hasGarden?: boolean;
 }
 
-type Location = {
+export type Location = {
   road: string,
   region: string,
   city: string,
   postcode: string
 }
 
-type PublicTransportDetails = { stations: StationDetails[]; }
-type StationDetails = {
+export type PublicTransportDetails = { stations: StationDetails[]; }
+export type StationDetails = {
   name: string;
   stationType: StationType;
   distanceFromProperty: number;
@@ -30,7 +30,7 @@ export enum PropertyType { DETACHED, SEMI_DETACHED, TERRACED, BUNGALOW, FLAT }
 
 export enum Tenure { FREEHOLD, LEASEHOLD, SHARED_FREEHOLD }
 
-type Rooms = {
+export type Rooms = {
   bedrooms: number;
   bathrooms: number;
   hasEnsuite: boolean;

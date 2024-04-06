@@ -1,6 +1,6 @@
 import React from 'react';
 import {Outlet} from "react-router-dom";
-import {Footer, Header} from "@/custom-components/fragments.tsx"
+import {Header} from "@/custom-components/fragments.tsx"
 
 export const PageLayout: React.FC = () => {
   return (
@@ -9,7 +9,6 @@ export const PageLayout: React.FC = () => {
       <main>
         <Outlet />
       </main>
-      <Footer />
     </>
   );
 };

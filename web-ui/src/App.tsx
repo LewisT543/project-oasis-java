@@ -1,13 +1,13 @@
 import {CombinedProvider} from "./providers/CombinedProvider.tsx";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {PageLayout} from "./pages/PageLayout.tsx";
-import {PropertiesList} from "./custom-components/PropertiesList.tsx";
 import {HomePage} from "./pages/HomePage.tsx";
 import {RouteNotFoundPage} from "./pages/RouteNotFoundPage.tsx";
 import {ApplicantsHomePage} from "./pages/Applicants/ApplicantsHomePage.tsx";
 import {CreateApplicantPage} from "@/pages/Applicants/CreateApplicantPage.tsx";
 import {ApplicantsPageLayout} from "@/pages/Applicants/ApplicantsPageLayout.tsx";
-
+import {PropertiesPage} from "@/pages/Properties/PropertiesPage.tsx";
+import {PropertiesLayoutPage} from "@/pages/Properties/PropertiesLayoutPage.tsx";
 
 function App() {
   return (
@@ -19,7 +19,9 @@ function App() {
         <Routes>
           <Route path={"/"} element={(<PageLayout />)} >
             <Route index element={<HomePage />} />
-            <Route path={"properties"} element={<PropertiesList />} />
+            <Route path={"properties"} element={<PropertiesLayoutPage /> } >
+              <Route index element={<PropertiesPage />}/>
+            </Route>
             <Route path={"applicants"} element={<ApplicantsPageLayout />} >
               <Route index element={<ApplicantsHomePage />}/>
               <Route path={"create"} element={<CreateApplicantPage />} />

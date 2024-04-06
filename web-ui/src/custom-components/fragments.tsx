@@ -31,7 +31,7 @@ const NavigationMenuItemWithLink: React.FC<{ linkText: string, path: string }> =
     <NavigationMenuItem>
       <Link to={path}>
         <NavigationMenuTrigger>
-          {linkText}
+          <h2>{linkText}</h2>
         </NavigationMenuTrigger>
       </Link>
     </NavigationMenuItem>

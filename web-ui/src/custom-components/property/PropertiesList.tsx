@@ -1,6 +1,6 @@
 import {FC} from "react";
 import {usePropertyContext} from "@/providers/PropertyProvider.tsx";
-import {objectToArray} from "../utils/objectToArray.ts"
+import {objectToArray} from "@/utils/objectToArray.ts"
 
 export const PropertiesList: FC = () => {
   const { data: properties, loading, error } = usePropertyContext();
@@ -8,8 +8,6 @@ export const PropertiesList: FC = () => {
   if (loading) return <div>loading</div>
   if (error) return <div>Error: {error.message}</div>
   if (!properties) return null
-
-  properties.forEach(console.log)
 
   return (
     <div>
