@@ -5,24 +5,16 @@ import {useState} from "react";
 import {
   ColumnDef,
   ColumnFiltersState,
-  SortingState,
   flexRender,
   getCoreRowModel,
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
+  SortingState,
   useReactTable,
 } from "@tanstack/react-table"
 
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table.tsx"
-import {Input} from "@/components/ui/input.tsx";
+import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow,} from "@/components/ui/table.tsx"
 
 
 interface DataTableProps<TData, TValue> {
@@ -52,16 +44,16 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
 
   return (
     <div>
-      <div className="flex items-center py-4">
-        <Input
-          placeholder="Filter by location..."
-          value={(table.getColumn("location")?.getFilterValue() as string) ?? ""}
-          onChange={(event) =>
-            table.getColumn("location")?.setFilterValue(event.target.value)
-          }
-          className="max-w-sm"
-        />
-      </div>
+      {/*<div className="flex items-center py-4">*/}
+      {/*  <Input*/}
+      {/*    placeholder="Filter by location..."*/}
+      {/*    value={(table.getColumn("location")?.getFilterValue() as string) ?? ""}*/}
+      {/*    onChange={(event) =>*/}
+      {/*      table.getColumn("location")?.setFilterValue(event.target.value)*/}
+      {/*    }*/}
+      {/*    className="max-w-sm"*/}
+      {/*  />*/}
+      {/*</div>*/}
       <div className="rounded-md border">
         <Table>
           <TableHeader>

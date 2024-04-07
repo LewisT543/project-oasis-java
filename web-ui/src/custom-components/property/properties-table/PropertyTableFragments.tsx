@@ -9,14 +9,13 @@ import {
 import {Button} from "@/components/ui/button.tsx";
 import {ArrowUpDown, MoreHorizontal} from "lucide-react";
 import {Column, Row} from "@tanstack/react-table";
-import {formatNumber} from "@/utils/formatterFns.ts";
+import {formatDTStringTo, formatNumber} from "@/utils/formatterFns.ts";
 import {Location, Property, Rooms} from "@/types/Property.ts";
 import {useModalPage} from "@/hooks/useModalPage.ts";
 
 /*
-  column here comprised of all the following values:
+  modal page/popup here comprised of all the following values:
     publicTransport: PublicTransportDetails;
-    addedOn: string;
     tenure: Tenure;
     size?: number;
     hasGarden?: boolean;
@@ -69,16 +68,19 @@ const ensuiteCaseMatch = (hasEnsuite: undefined | boolean): string => {
   }
 }
 
-export const PropertyTableRoomsCell = ({ row }: { row:  Row<Property> }) => {
+export const PropertyTableRoomsCell = ({ row }: { row: Row<Property> }) => {
   const { bedrooms, bathrooms, hasEnsuite }: Rooms = row.original.rooms
-  const displayStr = `Beds: ${bedrooms}, Bath: ${bathrooms}, EnSuite: ${ensuiteCaseMatch(hasEnsuite)}`
-  return (
-    <div>{displayStr}</div>
-  )
+  const displayStr = `Bed: ${bedrooms}, Bath: ${bathrooms}, EnSuite: ${ensuiteCaseMatch(hasEnsuite)}`
+  return <div className="w-[160px]">{displayStr}</div>
 }
 
 export const PropertyTableLocationCell = ({ row }: { row: Row<Property> }) => {
   const { road, city, region, postcode }: Location = row.original.location
   const displayStr = `${road}, ${city}, ${region} - ${postcode.toUpperCase()}`
-  return <div>{displayStr}</div>
+  return <div className="w-[220px]">{displayStr}</div>
+}
+
+export const PropertyTableAddedOnCell = ({ row }: { row: Row<Property> }) => {
+  const addedOn = formatDTStringTo(row.original.addedOn, "short-date")
+  return <div className="w-[80px]" >{addedOn}</div>
 }

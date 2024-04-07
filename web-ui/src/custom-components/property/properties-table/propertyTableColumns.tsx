@@ -12,15 +12,16 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import {Location, Property, PropertyType, PublicTransportDetails, Rooms, Tenure} from "@/types/Property.ts";
+import {Property, PropertyType} from "@/types/Property.ts";
 import {
+  PropertyTableAddedOnCell,
   PropertyTableLocationCell,
   PropertyTableNumberColumn,
   PropertyTableRoomsCell,
   PropertyTableRowDropdown,
   PropertyTableSortedHeader
 } from "@/custom-components/property/properties-table/PropertyTableFragments.tsx";
-import {formatDTStringTo, formatNumber, formatPropertyType} from "@/utils/formatterFns.ts";
+import {formatNumber, formatPropertyType} from "@/utils/formatterFns.ts";
 
 
 const ExampleColumns: ColumnDef<Payment>[] = [
@@ -112,6 +113,6 @@ export const PropertyTableColumns: ColumnDef<Property>[] = [
   {
     accessorKey: "addedOn",
     header: "Date Added",
-    cell: ({ row }) => formatDTStringTo(row.original.addedOn, "short-date")
+    cell: ({ row }) => (<PropertyTableAddedOnCell row={row} />),
   },
 ]
