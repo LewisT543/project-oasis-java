@@ -16,7 +16,7 @@ const PropertyContext = createContext<PropertyContextType>({
 export const usePropertyContext = useSafeContext<PropertyContextType>(PropertyContext)
 
 export const PropertyProvider: React.FC<ProviderProps> = ({ apiUrl, children }) => {
-  const { data: properties, loading, error } = useFetchData<Property[]>(apiUrl)
+  const [{ data: properties, loading, error }] = useFetchData<Property[]>(apiUrl)
 
   return (
     <PropertyContext.Provider value={{ data: properties, loading, error }}>

@@ -1,9 +1,9 @@
-import {PropertiesTable} from "@/custom-components/property/properties-table/PropertiesTable.tsx";
+import {PropertiesList} from "@/custom-components/property/PropertiesList.tsx";
 
 export const PropertiesPage = () => {
   return (
     <>
-      <PropertiesTable />
+      <PropertiesList />
     </>
   )
 }

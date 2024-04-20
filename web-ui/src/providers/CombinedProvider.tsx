@@ -17,11 +17,11 @@ type CombinedProviderProps = {
 export const CombinedProvider: React.FC<CombinedProviderProps> = ({ propertyUrl, applicantsUrl, children }) => {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <PropertyProvider apiUrl={propertyUrl}>
+      {/*<PropertyProvider apiUrl={propertyUrl}>*/}
         <ApplicantsProvider apiUrl={applicantsUrl}>
           {children}
         </ApplicantsProvider>
-      </PropertyProvider>
+      {/*</PropertyProvider>*/}
     </ThemeProvider>
   )
 }

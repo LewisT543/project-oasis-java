@@ -1,9 +1,11 @@
 import {FC} from "react";
-import {usePropertyContext} from "@/providers/PropertyProvider.tsx";
 import {objectToArray} from "@/utils/objectToArray.ts"
+import {useFetchData} from "@/hooks/useFetchData.ts";
+import {Property} from "@/types/Property.ts";
+import {Button} from "@/components/ui/button.tsx";
 
 export const PropertiesList: FC = () => {
-  const { data: properties, loading, error } = usePropertyContext();
+  const [{ data: properties, loading, error }, fetchData] = useFetchData<Property[]>(import.meta.env.VITE_PROPERTY_API_URL)
 
   if (loading) return <div>loading</div>
   if (error) return <div>Error: {error.message}</div>
@@ -19,6 +21,7 @@ export const PropertiesList: FC = () => {
           </li>
         ))}
       </ul>
+      <Button onClick={fetchData}>REFETCH </Button>
     </div>
   )
 }

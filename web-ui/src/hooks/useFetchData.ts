@@ -1,6 +1,6 @@
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import axios from "../mocks/axiosConfig.ts";
-import {AxiosResponse, AxiosError} from "axios"
+import {AxiosResponse, AxiosError, AxiosRequestConfig} from "axios"
 
 type FetchDataResult<T> = {
   data: T | null;
@@ -8,24 +8,33 @@ type FetchDataResult<T> = {
   error: Error | null;
 }
 
-export const useFetchData = <T>(url: string): FetchDataResult<T> => {
+// lol use react query
+
+export const useFetchData = <T>(url: string, params?: AxiosRequestConfig<T>): [FetchDataResult<T>, () => void] => {
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
+  const initialRender = useRef(true)
 
-  useEffect(() => {
-    axios.get<T>(url)
+  const fetchData = () => {
+    console.log(`called fetchData url: ${url}`)
+    setLoading(true)
+    axios.get<T>(url, params)
       .then((response: AxiosResponse<T>) => {
         setData(response.data)
+        setError(null)
       }).catch((error: AxiosError) => {
+        setData(null)
         setError(error)
       }).finally(() => {
         setLoading(false)
-    })
-    return () => {
+      })
+  }
 
-    }
+  useEffect(() => {
+    if (initialRender.current) initialRender.current = false
+    else fetchData()
   }, [url])
 
-  return { data, loading, error }
+  return [{ data, loading, error }, fetchData]
 }

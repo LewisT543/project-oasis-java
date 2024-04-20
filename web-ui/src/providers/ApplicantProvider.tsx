@@ -17,7 +17,7 @@ const ApplicantsContext = createContext<ApplicantContextType>({
 export const useApplicantsContext = useSafeContext<ApplicantContextType>(ApplicantsContext)
 
 export const ApplicantsProvider: React.FC<ProviderProps> = ({ apiUrl, children }) => {
-  const { data: applicants, loading, error } = useFetchData<Applicant[]>(apiUrl)
+  const [{ data: applicants, loading, error }] = useFetchData<Applicant[]>(apiUrl)
 
   return (
     <ApplicantsContext.Provider value={{ data: applicants, loading, error }}>

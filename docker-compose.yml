@@ -72,6 +72,17 @@ services:
     networks:
       - oasis-net
 
+  webscraping-service:
+    build:
+      context: ./webscraping-service
+      dockerfile: Dockerfile
+    ports:
+      - "8084:8084"
+    networks:
+      - oasis-net
+    environment:
+      - SPRING_PROFILES_ACTIVE=default
+
 networks:
   oasis-net:
     driver: bridge

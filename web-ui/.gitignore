@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Mono-repo related ignores
+../.idea/
+../deploy_all.bat
+../docker-compose.yml

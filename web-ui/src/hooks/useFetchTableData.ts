@@ -1,13 +1,13 @@
 import {useEffect, useState} from "react";
 import {useFetchData} from "@/hooks/useFetchData.ts";
 
-export const useTableData = <T>(apiUrl: string): T[] => {
+export const useFetchTableData = <T>(apiUrl: string): [T[], () => void] => {
   const [ tableData, setTableData ] = useState<T[]>([])
-  const { data } = useFetchData<T[]>(apiUrl)
+  const [{ data }, fetchData] = useFetchData<T[]>(apiUrl)
 
   useEffect(() => {
     setTableData(data ?? [])
   }, [data])
 
-  return tableData
+  return [ tableData, fetchData ]
 }
