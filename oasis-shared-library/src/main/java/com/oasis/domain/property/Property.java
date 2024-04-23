@@ -6,45 +6,45 @@ import com.oasis.domain.property.enums.Tenure;
 import java.util.Date;
 
 public class Property {
-    private String id;
-    private Location location;
+    private long siteId;
+    private String location;
     private int price;
     private PublicTransportDetails publicTransport;
     private Date addedOn;
-    private PropertyType propertyType;
+    private String propertyType;
     private Tenure tenure;
-    private Rooms rooms;
+    private int bedrooms;
     private Integer size;
     private Boolean hasGarden;
 
     public Property() {}
 
-    public Property(String id, Location location, int price, PublicTransportDetails publicTransport, Date addedOn, PropertyType propertyType, Tenure tenure, Rooms rooms, Integer size, Boolean hasGarden) {
-        this.id = id;
+    public Property(long siteId, String location, int price, PublicTransportDetails publicTransport, Date addedOn, String propertyType, Tenure tenure, int bedrooms, Integer size, Boolean hasGarden) {
+        this.siteId = siteId;
         this.location = location;
         this.price = price;
         this.publicTransport = publicTransport;
         this.addedOn = addedOn;
         this.propertyType = propertyType;
         this.tenure = tenure;
-        this.rooms = rooms;
+        this.bedrooms = bedrooms;
         this.size = size;
         this.hasGarden = hasGarden;
     }
 
-    public String getId() {
-        return id;
+    public long getSiteId() {
+        return siteId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setSiteId(long siteId) {
+        this.siteId = siteId;
     }
 
-    public Location getLocation() {
+    public String getLocation() {
         return location;
     }
 
-    public void setLocation(Location location) {
+    public void setLocation(String location) {
         this.location = location;
     }
 
@@ -72,11 +72,11 @@ public class Property {
         this.addedOn = addedOn;
     }
 
-    public PropertyType getPropertyType() {
+    public String getPropertyType() {
         return propertyType;
     }
 
-    public void setPropertyType(PropertyType propertyType) {
+    public void setPropertyType(String propertyType) {
         this.propertyType = propertyType;
     }
 
@@ -88,12 +88,12 @@ public class Property {
         this.tenure = tenure;
     }
 
-    public Rooms getRooms() {
-        return rooms;
+    public int getRooms() {
+        return bedrooms;
     }
 
-    public void setRooms(Rooms rooms) {
-        this.rooms = rooms;
+    public void setRooms(int bedrooms) {
+        this.bedrooms = bedrooms;
     }
 
     public Integer getSize() {

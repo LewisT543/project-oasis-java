@@ -48,16 +48,17 @@ public class PropertyDatabaseInitializer {
 
     private PropertyEntity createDefaultProperty() {
         return new PropertyEntity(
-                new Location("road", "region", "city", "postcode"),
+                12345678L,
+                "road, region, city, postcode",
                 300000,
                 new PublicTransportDetails(Arrays.asList(
                         new StationDetail("stationName1", StationType.TRAIN, 1.2),
                         new StationDetail("stationName2", StationType.BUS, 0.6)
                 )),
                 new Date(),
-                PropertyType.SEMI_DETACHED,
+                "semi-detached",
                 Tenure.FREEHOLD,
-                new Rooms(5, 2, false),
+                5,
                 2500,
                 true
         );

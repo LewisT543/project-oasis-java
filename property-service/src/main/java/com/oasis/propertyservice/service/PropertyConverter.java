@@ -6,14 +6,14 @@ import com.oasis.propertyservice.model.PropertyEntity;
 public class PropertyConverter {
     public static Property toDTO(PropertyEntity entity) {
         return new Property(
-                entity.getId(),
+                entity.getSiteId(),
                 entity.getLocation(),
                 entity.getPrice(),
                 entity.getPublicTransport(),
                 entity.getAddedOn(),
                 entity.getPropertyType(),
                 entity.getTenure(),
-                entity.getRooms(),
+                entity.getBedrooms(),
                 entity.getSize(),
                 entity.getHasGarden()
         );
@@ -21,6 +21,7 @@ public class PropertyConverter {
 
     public static PropertyEntity toEntity(Property dto) {
         return new PropertyEntity(
+                dto.getSiteId(),
                 dto.getLocation(),
                 dto.getPrice(),
                 dto.getPublicTransport(),

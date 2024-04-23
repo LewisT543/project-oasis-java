@@ -1,38 +1,22 @@
 package com.oasis.webscrapingservice.lib;
 
+import com.oasis.webscrapingservice.lib.response.parseFns.DataParseFn;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Webscraper<T> {
-    private final String baseUrl;
-    public List<T> properties = new ArrayList<>();
-
-    public Webscraper(String baseUrl) {
-        this.baseUrl = baseUrl;
-    }
-
-//    public List<T> getAll() {
-//
-//    }
-
-    public List<T> getPageOf(String url) {
+    public List<T> getPageOf(String url, DataParseFn<T> parseFn) {
         try {
-            // Fetch content
-            Document doc = Jsoup.connect(url).get();
-
-            // Extract elements
-
-            // Clean data?
-
-            //
+            Document doc = Jsoup.connect(url)
+                    .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36")
+                    .get();
+            return parseFn.apply(doc);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return new ArrayList<>();
     }
 
 }
