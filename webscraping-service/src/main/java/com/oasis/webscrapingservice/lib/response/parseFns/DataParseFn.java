@@ -6,5 +6,5 @@ import java.util.List;
 
 @FunctionalInterface
 public interface DataParseFn<T> {
-    List<T> apply(Document doc);
+    T apply(Document doc);
 }

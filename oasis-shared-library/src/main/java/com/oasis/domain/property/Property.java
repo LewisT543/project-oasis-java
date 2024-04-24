@@ -32,6 +32,18 @@ public class Property {
         this.hasGarden = hasGarden;
     }
 
+    @Override
+    public String toString() {
+        return String.format("{ [siteId=%d], [location=%s], [price=%d], [publicTransport=%s], [addedOn=%s], [propertyType=%s], " +
+                             "[tenure=%s], [bedrooms=%d], [size=%s], [hasGarden=%s] }",
+                siteId, location, price, objectToString(publicTransport), addedOn, propertyType, tenure, bedrooms,
+                objectToString(size), objectToString(hasGarden));
+    }
+
+    private String objectToString(Object obj) {
+        return (obj == null) ? "null" : obj.toString();
+    }
+
     public long getSiteId() {
         return siteId;
     }

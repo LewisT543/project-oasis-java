@@ -17,7 +17,7 @@ public class CustomFileWriter {
     }
 
     public static void writeToText(List<Property> propsList, String filePath) {
-        String textBuilder = propsList.stream().map(Object::toString).collect(Collectors.joining("\n"));
+        String textBuilder = propsList.stream().map(Property::toString).collect(Collectors.joining("\n"));
         writeFile(textBuilder, filePath);
     }
 

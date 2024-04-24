@@ -8,7 +8,6 @@ import com.oasis.webscrapingservice.lib.response.parseFns.DataParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.LinkedHashMap;
 import java.util.List;
 
 import static com.oasis.webscrapingservice.StaticURLs.*;
@@ -28,7 +27,6 @@ public class RightMoveScrapingService implements PropertyScrapingService {
                 RIGHTMOVE_SEARCH_ARGS_BASE,
                 RIGHTMOVE_SEARCH_URL
                 );
-//        DataCleanFn<Property> processData =
         List<Property> properties = webscraper.getPageOf(url, DataParser.rightMoveSearchCleanFn);
         return null;
     }
